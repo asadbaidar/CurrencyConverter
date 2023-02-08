@@ -11,7 +11,11 @@ import SwiftUI
 struct CurrencyConverterApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if(!isUnitTest) {
+                CurrencyPageView()
+            }
         }
     }
 }
+
+var isUnitTest: Bool {  NSClassFromString("XCTest") != nil }
